@@ -4,6 +4,14 @@ This project is a web page that displays the first 50 Airbnb listings from a pro
 
 The page uses vanilla HTML, CSS, and JavaScript. The listings are loaded dynamically using JavaScript `fetch()` and `async/await`.
 
+## Live Website
+
+[View the live Airbnb Listings webpage](https://tpatel2103.github.io/Airbnb_listings/)
+
+## GitHub Repository
+
+[View the GitHub Repository](https://github.com/Tpatel2103/Airbnb_listings)
+
 ## Features
 
 - Displays the first 50 Airbnb listings
