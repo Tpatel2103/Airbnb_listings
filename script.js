@@ -2,7 +2,7 @@ let favorites = 0;
 
 async function loadListings() {
     try {
-        const response = await fetch("data/airbnb_listings.json");
+        const response = await fetch("airbnb_sf_listings_500.json");
 
         if (!response.ok) {
             throw new Error("Could not load the listings data.");
