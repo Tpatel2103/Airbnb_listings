@@ -11,7 +11,7 @@ async function loadListings() {
     try {
 
         const response = await fetch(
-            "data/airbnb_sf_listings_500.json"
+            "airbnb_sf_listings_500.json"
         );
 
 
