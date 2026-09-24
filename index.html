@@ -1,33 +1,92 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airbnb Listings Explorer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>50 Stays, San Francisco — Airbnb Listings</title>
+<meta name="description" content="The first 50 San Francisco Airbnb listings, loaded live with fetch/await and browsable as a set of boarding passes." />
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/main.css" />
+</head>
 <body>
 
-    <header>
-        <h1>Airbnb Listings Explorer</h1>
-        <p>Explore the first 50 Airbnb listings</p>
+  <header class="ticket-hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">SF Transit &amp; Stay Co.</p>
+      <h1 class="hero-title">50 Stays,<br />San&nbsp;Francisco</h1>
+      <p class="hero-sub">
+        The first 50 listings pulled live from a local JSON file with
+        <code>fetch()</code> and <code>await</code> — no framework, no build step.
+      </p>
 
-        <div class="favorite-bar">
-            ❤️ Favorites: <span id="favoriteCount">0</span>
+      <dl class="hero-stats" id="heroStats" aria-live="polite">
+        <div class="stat">
+          <dt>Average fare</dt>
+          <dd id="statAvgPrice">—</dd>
         </div>
-    </header>
+        <div class="stat">
+          <dt>Superhosts aboard</dt>
+          <dd id="statSuperhosts">—</dd>
+        </div>
+        <div class="stat">
+          <dt>Amenities on offer</dt>
+          <dd id="statAmenities">—</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="hero-perforation" aria-hidden="true"></div>
+  </header>
 
-    <main>
-        <div id="loading">Loading listings...</div>
+  <main class="layout">
 
-        <div id="listings" class="listing-grid"></div>
-    </main>
+    <aside class="filter-rail" aria-label="Filter and sort listings">
+      <div class="rail-block">
+        <label class="rail-label" for="searchInput">Find a stay</label>
+        <input id="searchInput" type="search" placeholder="Search name or description…" autocomplete="off" />
+      </div>
 
-    <footer>
-        <p>Created for CS5610 Web Development</p>
-    </footer>
+      <div class="rail-block">
+        <label class="rail-label" for="sortSelect">Order the manifest</label>
+        <select id="sortSelect">
+          <option value="default">Default order</option>
+          <option value="price-asc">Price: low to high</option>
+          <option value="price-desc">Price: high to low</option>
+          <option value="rating-desc">Rating: highest first</option>
+          <option value="match-desc">Best amenity match</option>
+        </select>
+      </div>
 
-    <script src="script.js"></script>
+      <div class="rail-block">
+        <p class="rail-label">What matters to you?</p>
+        <p class="rail-hint">Pick a few amenities — every card stamps its match on the spot.</p>
+        <ul class="amenity-checklist" id="amenityChecklist"></ul>
+      </div>
+
+      <button class="surprise-btn" id="surpriseBtn" type="button">
+        Surprise me →
+      </button>
+
+      <p class="rail-count" id="resultCount" aria-live="polite"></p>
+    </aside>
+
+    <section class="listings-wrap">
+      <div id="statusBanner" class="status-banner" hidden></div>
+      <div class="listings-grid" id="listingsGrid" aria-live="polite"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Built for CS5610 · sample dataset shaped like Inside Airbnb's San Francisco export.
+      Swap <code>data/airbnb_listings.json</code> for the real dataset and everything else keeps working.
+    </p>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
