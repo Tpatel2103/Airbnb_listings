@@ -39,6 +39,4 @@ airbnb-listings/
 ├── index.html
 ├── style.css
 ├── script.js
-│
-└── data/
-    └── airbnb_sf_listings_500.json
+└── airbnb_sf_listings_500.json

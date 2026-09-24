@@ -30,7 +30,7 @@ async function loadListings() {
         /*
             Get the listings from the JSON.
 
-            This supports either:
+            This supports:
             - a JSON array
             - data.listings
             - data.results
@@ -70,8 +70,10 @@ async function loadListings() {
 
         displayListings(listings);
 
+    }
 
-    } catch (error) {
+
+    catch (error) {
 
         console.error(error);
 
@@ -87,7 +89,7 @@ async function loadListings() {
 
 
 /*
-    Display all 50 listings.
+    Display the listings.
 */
 
 function displayListings(listings) {
@@ -149,7 +151,7 @@ function displayListings(listings) {
 
 
         /*
-            Create card
+            Create listing card.
         */
 
         const card =
@@ -239,15 +241,14 @@ function displayListings(listings) {
                             onerror="this.style.display='none'"
                         >`
                         :
-                        `<div
-                            class="host-image"
-                        ></div>`
+                        `<div class="host-image"></div>`
                     }
 
 
                     <div class="host-name">
 
                         Hosted by
+
                         <strong>
                             ${hostName}
                         </strong>
@@ -295,7 +296,6 @@ function displayListings(listings) {
             "click",
             function () {
 
-
                 if (
                     favoriteButton.textContent.trim()
                     === "♡"
@@ -310,8 +310,9 @@ function displayListings(listings) {
 
                     favorites++;
 
+                }
 
-                } else {
+                else {
 
                     favoriteButton.textContent =
                         "♡";
@@ -346,7 +347,6 @@ function displayListings(listings) {
 
 function formatAmenities(amenities) {
 
-
     if (!amenities) {
 
         return "No amenities listed.";
@@ -355,7 +355,7 @@ function formatAmenities(amenities) {
 
 
     /*
-        If amenities is an array
+        If amenities is an array.
     */
 
     if (Array.isArray(amenities)) {
@@ -375,7 +375,7 @@ function formatAmenities(amenities) {
 
 
     /*
-        If amenities is a string
+        If amenities is a string.
     */
 
     if (typeof amenities === "string") {
